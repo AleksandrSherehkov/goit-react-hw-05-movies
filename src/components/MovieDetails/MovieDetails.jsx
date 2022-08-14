@@ -47,9 +47,10 @@ const MovieDetails = ({ movieInfo }) => {
         <InfoWrapper>
           <TitleWrapper>
             <Title>{title}</Title>
-            <ReleaseDate>{releaseDate}</ReleaseDate>
+            <ReleaseDate>release: {releaseDate}</ReleaseDate>
           </TitleWrapper>
           <GenresList>
+            уйл дсгэгод выпуск
             {genres && genres.map(({ name, id }) => <GenresItem key={id}>{name}</GenresItem>)}
           </GenresList>
           <Description>{description}</Description>

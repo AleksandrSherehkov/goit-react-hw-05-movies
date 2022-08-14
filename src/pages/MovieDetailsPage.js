@@ -27,7 +27,7 @@ const MovieDetailsPage = () => {
           genres: genres,
           description: overview,
           poster: poster_path,
-          releaseDate: release_date,
+          releaseDate: Number.parseInt(release_date),
           voteAverage: vote_average?.toFixed(2),
           voteCount: vote_count,
         };
