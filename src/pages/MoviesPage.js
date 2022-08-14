@@ -21,7 +21,7 @@ const MoviesPage = () => {
             id,
             title: original_title,
             poster: poster_path,
-            voteAverage: vote_average,
+            voteAverage: vote_average?.toFixed(2),
             voteCount: vote_count,
           };
 

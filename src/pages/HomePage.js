@@ -3,7 +3,7 @@ import getTrendingApi from 'API/getTrendingApi';
 import Container from 'components/Container/Container';
 import MoviesList from 'components/MoviesList/MoviesList';
 
-const HomePage =() =>{
+const HomePage = () => {
   const [movies, setMovies] = useState(null);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const HomePage =() =>{
           id,
           title: original_title,
           poster: poster_path,
-          voteAverage: vote_average,
+          voteAverage: vote_average?.toFixed(2),
           voteCount: vote_count,
         };
 
@@ -29,10 +29,13 @@ const HomePage =() =>{
   return (
     movies && (
       <Container>
+        <h1 style={{ textAlign: 'center', marginBottom: '20px', color: '#c7d4ed' }}>
+          TRENDING TODAY
+        </h1>
         <MoviesList movies={movies} />
       </Container>
     )
   );
-}
+};
 
 export default HomePage;

@@ -12,7 +12,7 @@ const Reviews = () => {
     getMovieReviewsApi(movieId).then(({ results }) => {
       const reviewsArr = [];
 
-      results.map(({ id, author, content }) => {
+      results?.map(({ id, author, content }) => {
         const review = {
           id,
           author,

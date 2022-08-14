@@ -28,7 +28,7 @@ const MovieDetailsPage = () => {
           description: overview,
           poster: poster_path,
           releaseDate: release_date,
-          voteAverage: vote_average,
+          voteAverage: vote_average?.toFixed(2),
           voteCount: vote_count,
         };
 

@@ -11,7 +11,7 @@ const Cast = () => {
     getMovieCreditsApi(movieId).then(({ cast }) => {
       const actorsArr = [];
 
-      cast.map(({ id, name, profile_path }) => {
+      cast?.map(({ id, name, profile_path }) => {
         const actor = {
           id,
           name,
