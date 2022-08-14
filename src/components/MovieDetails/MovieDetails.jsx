@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import Container from 'components/Container/Container';
 import propTypes from 'prop-types';
 import posterBg from '../../utilities/images/poster.png';
-import Container from 'components/Container/Container';
 import {
   ButtonGoBack,
   Label,
@@ -50,7 +50,6 @@ const MovieDetails = ({ movieInfo }) => {
             <ReleaseDate>release: {releaseDate}</ReleaseDate>
           </TitleWrapper>
           <GenresList>
-            уйл дсгэгод выпуск
             {genres && genres.map(({ name, id }) => <GenresItem key={id}>{name}</GenresItem>)}
           </GenresList>
           <Description>{description}</Description>
