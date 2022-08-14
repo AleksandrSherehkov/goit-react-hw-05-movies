@@ -4,8 +4,8 @@ import getMovieDetailsApi from 'API/getMovieDetailsApi';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
 import Loader from 'components/Loader/Loader';
 
-const Cast = lazy(() => import('./Cast.js'));
-const Reviews = lazy(() => import('./Reviews.js'));
+const Cast = lazy(() => import('./CastPage.js'));
+const Reviews = lazy(() => import('./ReviewsPage.js'));
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
