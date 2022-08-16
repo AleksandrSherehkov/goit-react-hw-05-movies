@@ -8,21 +8,23 @@ const Cast = () => {
   const [actors, setActors] = useState(null);
 
   useEffect(() => {
-    getMovieCreditsApi(movieId).then(({ cast }) => {
-      const actorsArr = [];
+    getMovieCreditsApi(movieId)
+      .then(({ cast }) => {
+        const actorsArr = [];
 
-      cast?.map(({ id, name, profile_path }) => {
-        const actor = {
-          id,
-          name,
-          photo: profile_path,
-        };
+        cast?.map(({ id, name, profile_path }) => {
+          const actor = {
+            id,
+            name,
+            photo: profile_path,
+          };
 
-        return actorsArr.push(actor);
-      });
+          return actorsArr.push(actor);
+        });
 
-      setActors(actorsArr);
-    });
+        setActors(actorsArr);
+      })
+      .catch(err => console.log(err));
   }, [movieId]);
 
   return actors && <CastList actors={actors} />;

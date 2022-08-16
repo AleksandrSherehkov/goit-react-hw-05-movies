@@ -9,21 +9,23 @@ const Reviews = () => {
   const [reviews, setReviews] = useState(null);
 
   useEffect(() => {
-    getMovieReviewsApi(movieId).then(({ results }) => {
-      const reviewsArr = [];
+    getMovieReviewsApi(movieId)
+      .then(({ results }) => {
+        const reviewsArr = [];
 
-      results?.map(({ id, author, content }) => {
-        const review = {
-          id,
-          author,
-          text: content,
-        };
+        results?.map(({ id, author, content }) => {
+          const review = {
+            id,
+            author,
+            text: content,
+          };
 
-        return reviewsArr.push(review);
-      });
+          return reviewsArr.push(review);
+        });
 
-      setReviews(reviewsArr);
-    });
+        setReviews(reviewsArr);
+      })
+      .catch(err => console.log(err));
   }, [movieId]);
 
   return reviews && reviews.length > 0 ? (

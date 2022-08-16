@@ -13,23 +13,25 @@ const MoviesPage = () => {
 
   useEffect(() => {
     if (query !== '') {
-      getSearchMoviesApi(query).then(({ results }) => {
-        const moviesArr = [];
+      getSearchMoviesApi(query)
+        .then(({ results }) => {
+          const moviesArr = [];
 
-        results.map(({ id, original_title, poster_path, vote_average, vote_count }) => {
-          const movie = {
-            id,
-            title: original_title,
-            poster: poster_path,
-            voteAverage: vote_average?.toFixed(2),
-            voteCount: vote_count,
-          };
+          results.map(({ id, original_title, poster_path, vote_average, vote_count }) => {
+            const movie = {
+              id,
+              title: original_title,
+              poster: poster_path,
+              voteAverage: vote_average?.toFixed(2),
+              voteCount: vote_count,
+            };
 
-          return moviesArr.push(movie);
-        });
+            return moviesArr.push(movie);
+          });
 
-        setMovies(moviesArr);
-      });
+          setMovies(moviesArr);
+        })
+        .catch(err => console.log(err));
     }
   }, [query]);
 

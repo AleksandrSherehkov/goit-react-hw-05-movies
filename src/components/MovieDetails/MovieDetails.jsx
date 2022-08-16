@@ -28,7 +28,6 @@ import { FaChevronRight, FaChevronLeft } from 'react-icons/fa';
 
 const MovieDetails = ({ movieInfo }) => {
   const location = useLocation();
-  console.log(useLocation());
   const navigate = useNavigate();
   const subLocation = location.state?.from;
 

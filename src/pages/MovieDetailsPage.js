@@ -12,29 +12,31 @@ const MovieDetailsPage = () => {
   const [movieInfo, setMovieInfo] = useState(null);
 
   useEffect(() => {
-    getMovieDetailsApi(movieId).then(
-      ({
-        original_title,
-        genres,
-        overview,
-        poster_path,
-        release_date,
-        vote_average,
-        vote_count,
-      }) => {
-        const movieInfo = {
-          title: original_title,
-          genres: genres,
-          description: overview,
-          poster: poster_path,
-          releaseDate: Number.parseInt(release_date),
-          voteAverage: vote_average?.toFixed(2),
-          voteCount: vote_count,
-        };
+    getMovieDetailsApi(movieId)
+      .then(
+        ({
+          original_title,
+          genres,
+          overview,
+          poster_path,
+          release_date,
+          vote_average,
+          vote_count,
+        }) => {
+          const movieInfo = {
+            title: original_title,
+            genres: genres,
+            description: overview,
+            poster: poster_path,
+            releaseDate: Number.parseInt(release_date),
+            voteAverage: vote_average?.toFixed(2),
+            voteCount: vote_count,
+          };
 
-        return setMovieInfo(movieInfo);
-      }
-    );
+          return setMovieInfo(movieInfo);
+        }
+      )
+      .catch(err => console.log(err));
   }, [movieId]);
 
   return (
